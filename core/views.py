@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from . models import Event
 from .forms import EventForm
 from django.views import generic
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 class Registration(generic.CreateView):
     model = User
@@ -16,6 +18,7 @@ class Registration(generic.CreateView):
         context['page'] = 'signup'
         return context
 
+@method_decorator(login_required(login_url='/login/'), name='dispatch')
 class Home(generic.CreateView):
     model = Event
     form_class = EventForm

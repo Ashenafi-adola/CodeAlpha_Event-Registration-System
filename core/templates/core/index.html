@@ -6,6 +6,38 @@
     <title>Home</title>
 </head>
 <body>
-    
+    <header>
+        <form action="{% url 'signout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </header>
+    <div>
+        <h1>Home</h1>
+        <hr>
+        <div>
+            <div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit">Add Event</button>
+                </form>
+            </div>
+            <div>
+                {% for event in events %}
+                    <div>
+                        <p>{{event.title}}</p>
+                        <p>{{event.description}}</p>
+                        <label for="completed">Completed: </label>
+                        {% if event.completed == True %}
+                            <input type="checkbox" name="completed" checked/>
+                        {% else %}
+                            <input type="checkbox" name="completed"/>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

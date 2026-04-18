@@ -6,5 +6,6 @@ urlpatterns = [
     path('', Home.as_view(), name="home"),
     path('login/', LoginView.as_view(template_name='core/authPage.html'), name="login"),
     path('register/', Registration.as_view(), name='signup'),
-    
+    path('signout/', LogoutView.as_view(template_name='core/authPage.html'), name='signout')
+
 ]
