@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auth Page</title>
 </head>
 <body>
-    
+    <div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %} 
+                {% if page == 'signup' %}
+                <h2>Reginster</h2>
+                {{ form.as_p }}
+                <div>
+                    <button type="submit">Register</button>
+                </div>
+                <div>
+                    <p>Already Have An Account? <a href="{% url 'login' %}">Login Here</a></p>
+                </div>
+                {% else %}
+                <h2>Login to you Account</h2>
+                <div>
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" placeholder="Username...">
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" placeholder="Password...">
+                </div>
+                <div>
+                    <button type="submit">Logiin</button>
+                </div>
+                <div>
+                    <p>Don't Have An Account? <a href="{% url 'signup' %}">Reginster Here</a></p>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
 </body>
 </html>
