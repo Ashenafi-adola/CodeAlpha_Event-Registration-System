@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Detail</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
 </head>
 <body>
-    
+    <div class="main-content">
+        <a href="{% url 'home' %}">Home</a>
+        <h1>Event Detail</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <h2>{{event.title}}</h2>
+                <p>
+                    {{event.description}}
+                </p>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label>
+                    <input type="checkbox" name="completed" {% if event.completed == True %}checked{% endif %}>
+                    Completed
+                </label>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>

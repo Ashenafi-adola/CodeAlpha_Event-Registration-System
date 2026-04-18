@@ -13,6 +13,7 @@ class EventForm(ModelForm):
             })),
             'description': Textarea(attrs=({
                 'class': 'form-control',
-                'placeholder': "Enter The Description..."
+                'placeholder': "Enter The Description...",
+                'rows': 4
             }))
         }

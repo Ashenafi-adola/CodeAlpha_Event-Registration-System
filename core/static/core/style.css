@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f4f6fa 0%, #e9eafc 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container, .main-content {
+    max-width: 80%;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+    padding: 2.5rem 2rem;
+    position: fi;
+}
+
+h1, h2, h3 {
+    color: #2d3e50;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+header, nav, footer {
+    background: #2d3e50;
+    color: #fff;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+button, input[type="submit"] {
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    transition: background 0.2s;
+}
+button:hover, input[type="submit"]:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+}
+
+form {
+    margin: 2rem 0 1rem 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+input, select, textarea, .form-control {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #bfc9d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f8fafc;
+    transition: border 0.2s;
+    box-sizing: border-box;
+}
+input:focus, select:focus, textarea:focus, .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    background: #fff;
+}
+
+.form-control {
+    font-family: inherit;
+    color: #2d3e50;
+}
+
+.alert {
+    padding: 1rem;
+    background: #ffeeba;
+    color: #856404;
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ffeeba;
+    font-size: 1rem;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }

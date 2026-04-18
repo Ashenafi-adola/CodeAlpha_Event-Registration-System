@@ -37,3 +37,22 @@ class Home(generic.CreateView):
         event.user = self.request.user
         event.save()
         return redirect('/')
+    
+class EventDetail(generic.UpdateView):
+    model = Event
+    template_name = 'core/eventDetail.html'
+    form_class = EventForm
+    context_object_name = 'event'
+
+    def get_object(self, queryset = ...):
+        return Event.objects.get(id=self.kwargs['pk'])
+    
+    def post(self, request, *args, **kwargs):
+        completed = self.request.POST.get('completed')
+        event = self.get_object()
+        if completed == 'on':
+            event.completed = True
+        else:
+            event.completed = False
+        event.save()
+        return redirect('home')
