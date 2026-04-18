@@ -23,18 +23,21 @@
                     <button type="submit">Add Event</button>
                 </form>
             </div>
+            <hr>
             <div>
                 {% for event in events %}
-                    <div>
-                        <p>{{event.title}}</p>
-                        <p>{{event.description}}</p>
-                        <label for="completed">Completed: </label>
-                        {% if event.completed == True %}
-                            <input type="checkbox" name="completed" checked/>
-                        {% else %}
-                            <input type="checkbox" name="completed"/>
-                        {% endif %}
-                    </div>
+                    <a href="" style="text-decoration: none;">
+                        <div>
+                            <p>{{event.title}}</p>
+                            <p>{{event.description}}</p>
+                            {% if event.completed == True %}
+                                <h3>Completed</h3>    
+                            {% else %}
+                                <h3>Note Completed</h3>
+                            {% endif %}
+                        </div>
+                    </a>
+                    <hr>
                 {% endfor %}
             </div>
         </div>

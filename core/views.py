@@ -23,7 +23,17 @@ class Home(generic.CreateView):
     model = Event
     form_class = EventForm
     template_name = 'core/index.html'
-    context_object_name = 'events'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['events'] = self.get_queryset()
+        return context
 
     def get_queryset(self):
         return Event.objects.filter(user=self.request.user)
+    
+    def form_valid(self, form):
+        event = form.save(commit=False)
+        event.user = self.request.user
+        event.save()
+        return redirect('/')
